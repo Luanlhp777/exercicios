@@ -13,4 +13,4 @@ console.log(`Resultado: ${fahrenheit} Graus Fahrenheit.`);
 let calculo2 = Number(prompt("Quantos graus Fahrenheit você quer converter para Celsius? "));
 // Formula para carlular de Fahrenheit para Celsius (fahrenheit - 32) * (5 / 9)
 let celsius = (calculo2 - 32) * (5 / 9);
-console.log(`Resultao: ${celsius} Graus Celsius.`);
+console.log(`Resultao: ${celsius.toFixed(2)} Graus Celsius.`);

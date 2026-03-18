@@ -12,4 +12,4 @@ let juros = valorFatura * (taxaJuros / 100);
 // Fórmula para calcular valorFinal = valorFatura + juros
 let valorFinal = valorFatura + juros;
 
-console.log(`Valor total da sua fatura com juros:  ${valorFinal}`);
+console.log(`Valor total da sua fatura com juros:  ${valorFinal.toFixed(2)}`);
