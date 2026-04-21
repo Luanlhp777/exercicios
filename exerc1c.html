@@ -1,0 +1,17 @@
+<meta charset="utf-8">
+
+<script>
+
+  // Elabore um programa para uma loja, o qual leia o preço de um produto e informe as opções de pagamento da loja. Calcule e informe o valor para pagamento à vista com 10 % de desconto e o valor em 3x.
+  // Elabore também o pagamento com juros de 10% para pagamento em 6 vezes.
+
+  var preco = Number(prompt("Preço R$: "));               // Lê o preço do produto.
+
+  var avista = preco - (preco * 0.10);                    // Calcula valores à vista e das parcelas
+  var parcelado = preco / 3;
+  var parcela_6_x = (preco + (preco * 0.10)) / 6;
+
+
+  alert("À Vista R$: " + avista.toFixed(2) + "\nOu 3x de R$: " + parcelado.toFixed(2) + "\nOu x6 de R$: " + parcela_6_x.toFixed(2));      // Exibe as respostas.
+
+</script>
