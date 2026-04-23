@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1 - Conversor de Temperatura</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #101828;
+            color: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .caixa {
+            width: 100%;
+            max-width: 420px;
+            background: #1e293b;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            font-size: 1rem;
+            margin-bottom: 14px;
+        }
+
+        input,
+        select {
+            background: #f8fafc;
+            color: #0f172a;
+        }
+
+        button {
+            background: #38bdf8;
+            color: #082f49;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #7dd3fc;
+        }
+
+        .resultado {
+            margin-top: 8px;
+            padding: 16px;
+            border-radius: 12px;
+            background: #0f172a;
+        }
+
+        .resultado strong {
+            display: block;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: #67e8f9;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="caixa">
+        <h1>Conversor de Temperatura</h1>
+        <p>Converta entre Celsius e Fahrenheit de forma simples.</p>
+
+        <label for="valor">Temperatura</label>
+        <input type="number" id="valor" placeholder="Digite um valor" step="any">
+
+        <label for="tipo">Conversao</label>
+        <select id="tipo">
+            <option value="c-f">Celsius para Fahrenheit</option>
+            <option value="f-c">Fahrenheit para Celsius</option>
+        </select>
+
+        <button id="converter">Converter</button>
+
+        <section class="resultado">
+            <strong id="resultado">Aguardando valor...</strong>
+            <span id="mensagem">Escolha a conversao e clique no botao.</span>
+        </section>
+    </main>
+
+    <script>
+        const valor = document.getElementById("valor");
+        const tipo = document.getElementById("tipo");
+        const resultado = document.getElementById("resultado");
+        const mensagem = document.getElementById("mensagem");
+        const botao = document.getElementById("converter");
+
+        function converter() {
+            const numero = Number(valor.value);
+
+            if (valor.value === "" || Number.isNaN(numero)) {
+                resultado.textContent = "Aguardando valor...";
+                mensagem.textContent = "Digite uma temperatura valida para converter.";
+                return;
+            }
+
+            if (tipo.value === "c-f") {
+                const fahrenheit = (numero * 9 / 5) + 32;
+                resultado.textContent = fahrenheit.toFixed(2) + " °F";
+                mensagem.textContent = numero + " °C equivalem a " + fahrenheit.toFixed(2) + " °F.";
+            } else {
+                const celsius = (numero - 32) * 5 / 9;
+                resultado.textContent = celsius.toFixed(2) + " °C";
+                mensagem.textContent = numero + " °F equivalem a " + celsius.toFixed(2) + " °C.";
+            }
+        }
+
+        botao.addEventListener("click", converter);
+    </script>
+</body>
+
+</html>

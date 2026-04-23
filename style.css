@@ -307,6 +307,12 @@ footer {
     min-height: 96px;
 }
 
+.card-acoes {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
 .card-btn {
     display: inline-block;
     text-decoration: none;
